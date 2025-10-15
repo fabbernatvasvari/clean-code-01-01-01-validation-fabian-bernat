@@ -1,5 +1,5 @@
 using ConsoleValidationDemo_FullValidator.Model;
-using ConsoleValidationDemo_FullValidator.Exception;
+using ConsoleValidationDemo_FullValidator.MyException;
 using ConsoleValidationDemo_FullValidator.Common;
 
 namespace ConsoleValidationDemo_FullValidator.Validator
@@ -9,7 +9,7 @@ namespace ConsoleValidationDemo_FullValidator.Validator
         public static void Validate(Customer customer)
         {
             if (customer == null)
-                throw new ValidationException(ErrorMessages.ObjectNull);
+                throw new ValidationException("null felhasználót kaptunk =( :" + ErrorMessages.ObjectNull);
 
             Validate(customer.Name, customer.Email, customer.Amount);
         }
@@ -18,7 +18,13 @@ namespace ConsoleValidationDemo_FullValidator.Validator
         {
             NameValidator.ValidateName(name);
             EmailValidator.ValidateEmail(email);
+            try
+            {
             AmountValidator.ValidateAmount(amount);
+            } catch (Exception ex)
+            {
+                Console.WriteLine("Hiba történt: " + name + " " + email + " " + amount + " " + ex.Message);
+            }
         }
     }
 }

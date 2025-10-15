@@ -1,5 +1,5 @@
 ﻿using ConsoleValidationDemo_FullValidator.Common;
-using ConsoleValidationDemo_FullValidator.Exception;
+using ConsoleValidationDemo_FullValidator.MyException;
 
 namespace ConsoleValidationDemo_FullValidator.Validator
 {
@@ -13,7 +13,8 @@ namespace ConsoleValidationDemo_FullValidator.Validator
             if (amount > 1_000_000m)
                 throw new ValidationException(ErrorMessages.AmountTooLarge);
 
-            // Készítsen ide még más validálási szabályokat
+            if (int.Parse(amount.ToString()) == 0 && amount.ToString().Length > 0)
+                throw new ValidationException("Az egyenleg csak egész szám lehet.");
         }
     }
 }

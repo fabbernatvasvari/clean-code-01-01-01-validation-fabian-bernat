@@ -1,5 +1,5 @@
 ﻿using ConsoleValidationDemo_FullValidator.Common;
-using ConsoleValidationDemo_FullValidator.Exception;
+using ConsoleValidationDemo_FullValidator.MyException;
 
 namespace ConsoleValidationDemo_FullValidator.Validator
 {
@@ -15,7 +15,7 @@ namespace ConsoleValidationDemo_FullValidator.Validator
                 throw new ValidationException(ErrorMessages.NameEmpty);
 
             if (trimmed.Length < 2)
-                throw new ValidationException(ErrorMessages.NameTooShort);
+                throw new ValidationException( "Név: '" + name + "'. Ez egy érvénytelen név: " + ErrorMessages.NameTooShort);
 
             foreach (var ch in trimmed)
             {

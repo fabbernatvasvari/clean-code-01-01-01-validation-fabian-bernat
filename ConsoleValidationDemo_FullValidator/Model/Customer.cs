@@ -8,11 +8,19 @@ namespace ConsoleValidationDemo_FullValidator.Model
         public string Email { get; private set; }
         public decimal Amount { get; private set; }
 
+        public Customer()
+        {
+            Name = "Ismeretlen felhasználó";
+            Email = "Ismeretlen felhasználó";
+            Amount = 0m;
+        }
         public Customer(string name, string email, decimal amount)
         {
             Name = name.Trim();
             Email = email.Trim();
             Amount = amount;
+
+            Console.WriteLine(ToString() + " validálása...");
             CustomerValidator.Validate(name, email, amount);
         }
 
