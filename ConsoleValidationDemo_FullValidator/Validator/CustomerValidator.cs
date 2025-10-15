@@ -9,7 +9,7 @@ namespace ConsoleValidationDemo_FullValidator.Validator
         public static void Validate(Customer customer)
         {
             if (customer == null)
-                throw new ValidationExceptions(ErrorMessages.ObjectNull);
+                throw new ValidationException(ErrorMessages.ObjectNull);
 
             Validate(customer.Name, customer.Email, customer.Amount);
         }

@@ -8,10 +8,10 @@ namespace ConsoleValidationDemo_FullValidator.Validator
         public static void ValidateAmount(decimal amount)
         {
             if (amount < 0)
-                throw new ValidationExceptions(ErrorMessages.AmountNegative);
+                throw new ValidationException(ErrorMessages.AmountNegative);
 
             if (amount > 1_000_000m)
-                throw new ValidationExceptions(ErrorMessages.AmountTooLarge);
+                throw new ValidationException(ErrorMessages.AmountTooLarge);
 
             // Készítsen ide még más validálási szabályokat
         }

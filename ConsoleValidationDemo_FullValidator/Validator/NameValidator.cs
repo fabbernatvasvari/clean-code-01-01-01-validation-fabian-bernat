@@ -8,19 +8,19 @@ namespace ConsoleValidationDemo_FullValidator.Validator
         public static void ValidateName(string name)
         {
             if (name is null)
-                throw new ValidationExceptions(ErrorMessages.NameNull);
+                throw new ValidationException(ErrorMessages.NameNull);
 
             var trimmed = name.Trim();
             if (trimmed.Length == 0)
-                throw new ValidationExceptions(ErrorMessages.NameEmpty);
+                throw new ValidationException(ErrorMessages.NameEmpty);
 
             if (trimmed.Length < 2)
-                throw new ValidationExceptions(ErrorMessages.NameTooShort);
+                throw new ValidationException(ErrorMessages.NameTooShort);
 
             foreach (var ch in trimmed)
             {
                 if (!(char.IsLetter(ch) || ch == ' ' || ch == '-'))
-                    throw new ValidationExceptions(ErrorMessages.NameInvalidChars);
+                    throw new ValidationException(ErrorMessages.NameInvalidChars);
             }
 
             // Készítsen ide még más validálási szabályokat

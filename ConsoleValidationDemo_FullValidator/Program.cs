@@ -11,15 +11,15 @@ namespace ConsoleValidationDemo_FullValidator
         {
             try
             {
-                var ok = new Customer("Kiss Béla", "bela.kiss@example.com", 1500m);
-                Console.WriteLine("✅ Sikeres példány: " + ok);
+                Customer validCustomer = new Customer("Kiss Béla", "bela.kiss@example.com", 1500m);
+                Console.WriteLine("✅ Sikeres felhasználő létrehozás: " + validCustomer);
 
-                var hibas = new Customer("B", "hibas@", -10m);
-                Console.WriteLine("Ezt nem fogjuk látni: " + hibas);
+                Customer invalidCustomer = new Customer("B", "invalidCustomer@", -10m);
+                Console.WriteLine("Ezt nem fogjuk látni: " + invalidCustomer);
             }
-            catch (ValidationExceptions ex)
+            catch (ValidationException vEx)
             {
-                Console.WriteLine("❌ Validációs hiba: " + ex.Message);
+                Console.WriteLine("❌ Validációs hiba: " + vEx.Message);
             }
 
             Console.WriteLine("\nProgram vége. Nyomj egy Entert...");
