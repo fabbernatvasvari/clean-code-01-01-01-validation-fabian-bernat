@@ -334,5 +334,4 @@ A diákok így már az alapoknál megtanulják:
 
 - hogyan épül fel egy domain modell,
 - hogyan védjük meg az objektumainkat hibás állapottól,
-- és hogyan építünk karbantartható, ipari szemléletű kódot.#   c l e a n - c o d e - 0 1 - 0 1 - 0 1 - v a l i d a t i o n - f a b i a n - b e r n a t  
- 
+- és hogyan építünk karbantartható, ipari szemléletű kódot.
