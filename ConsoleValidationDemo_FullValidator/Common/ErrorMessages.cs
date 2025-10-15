@@ -11,5 +11,6 @@ namespace ConsoleValidationDemo_FullValidator.Common
         public const string EmailInvalid = "Az e-mail formátuma érvénytelen.";
         public const string AmountNegative = "Az egyenleg nem lehet negatív.";
         public const string AmountTooLarge = "Az egyenleg túl nagy.";
+        public static string NamePartNotCapitalized = "A név részeinek nagybetűvel kell kezdődniük.";
     }
 }

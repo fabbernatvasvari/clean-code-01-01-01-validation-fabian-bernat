@@ -23,7 +23,12 @@ namespace ConsoleValidationDemo_FullValidator.Validator
                     throw new ValidationException(ErrorMessages.NameInvalidChars);
             }
 
-            // Készítsen ide még más validálási szabályokat
+            foreach (var part in trimmed.Split(' ', '-'))
+            {
+                if (part.Length == 0) continue; // Két elválasztó egymás után
+                if (!char.IsUpper(part[0]))
+                    throw new ValidationException(ErrorMessages.NamePartNotCapitalized);
+            }
         }
     }
 }

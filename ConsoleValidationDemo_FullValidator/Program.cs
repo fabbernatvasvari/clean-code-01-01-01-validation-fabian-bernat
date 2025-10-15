@@ -9,17 +9,17 @@ namespace ConsoleValidationDemo_FullValidator
     {
         static void Main(string[] args)
         {
+            Customer validCustomer = new Customer("Kiss Béla", "bela.kiss@example.com", 1500m);
+            Console.WriteLine("✅ Sikeres felhasználő létrehozás: " + validCustomer);
+            Customer invalidCustomer = null;
             try
             {
-                Customer validCustomer = new Customer("Kiss Béla", "bela.kiss@example.com", 1500m);
-                Console.WriteLine("✅ Sikeres felhasználő létrehozás: " + validCustomer);
-
-                Customer invalidCustomer = new Customer("B", "invalidCustomer@", -10m);
-                Console.WriteLine("Ezt nem fogjuk látni: " + invalidCustomer);
+                invalidCustomer = new Customer("B", "invalidCustomer@", -10m);
             }
             catch (ValidationException vEx)
             {
-                Console.WriteLine("❌ Validációs hiba: " + vEx.Message);
+                Console.WriteLine("Érvénytelen felhasználó: " + invalidCustomer);
+                Console.WriteLine($"❌ Validációs hiba: {invalidCustomer} " + vEx.Message);
             }
 
             Console.WriteLine("\nProgram vége. Nyomj egy Entert...");

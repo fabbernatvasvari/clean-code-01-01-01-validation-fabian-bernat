@@ -10,10 +10,10 @@ namespace ConsoleValidationDemo_FullValidator.Model
 
         public Customer(string name, string email, decimal amount)
         {
-            CustomerValidator.Validate(name, email, amount);
             Name = name.Trim();
             Email = email.Trim();
             Amount = amount;
+            CustomerValidator.Validate(name, email, amount);
         }
 
         public override string ToString() => $"{Name} <{Email}> (Egyenleg: {Amount} Ft)";
